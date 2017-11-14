@@ -9,7 +9,6 @@ public class LabThird {
         matrix1.setLength(10);
         matrix1.setWidth(10);
         matrix1.getRandom();
-        //hello
         searchMinMax.setLength(matrix1.getLength());
         searchMinMax.setWidth(matrix1.getWidth());
         searchMinMax.setMas(matrix1.getMas());
