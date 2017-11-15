@@ -60,4 +60,25 @@ public class Matrix {
         matrix.forEach(System.out::println);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Matrix matrix1 = (Matrix) o;
+
+        if (lengthMatrix != matrix1.lengthMatrix) return false;
+        if (widthMatrix != matrix1.widthMatrix) return false;
+        if (!matrix.equals(matrix1.matrix)) return false;
+        return author.equals(matrix1.author);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = lengthMatrix;
+        result = 31 * result + widthMatrix;
+        result = 31 * result + matrix.hashCode();
+        result = 31 * result + author.hashCode();
+        return result;
+    }
 }

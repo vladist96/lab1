@@ -9,8 +9,10 @@ public class LabJson {
     private static final String FILENAME = "d:\\labJson.json";
 
     public static void main(String[] args) {
-        Author author = new Author("Steve", 21, Author.Sex.valueOf("male"));
+        Author author = new Author("Steve", 21, Author.Sex.MALE);
         Matrix matrix = new Matrix(author);
+
+        Matrix restoredMatrix = null;
         SearcherMinMax minMax = new SearcherMinMax();
 
         matrix.setLength(4);
@@ -38,7 +40,7 @@ public class LabJson {
         try {
             BufferedReader reader = new BufferedReader(
                     new FileReader(FILENAME));
-            fromFileJson = org.apache.commons.io.IOUtils.toString(reader);
+            restoredMatrix = gson.fromJson(reader, Matrix.class);
 
         } catch (IOException ex) {
             Logger.getLogger(LabJson.class.getName())
@@ -48,7 +50,7 @@ public class LabJson {
         System.out.println(toFileJson);
         System.out.println(fromFileJson);
 */
-        if (Objects.equals(toFileJson, fromFileJson)) {
+        if (matrix.equals(matrix) == restoredMatrix.equals(restoredMatrix)){
             System.out.println("\nHurrah!!! \nVariables are equal!!!");
         } else System.out.println("\nOops something went wrong! :/");
     }
